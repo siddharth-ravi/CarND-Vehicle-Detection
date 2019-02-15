@@ -1,6 +1,6 @@
 # Vehicle Detection Project
 
-The design steps executed have been provided with reference to the project rubric. 
+The steps used for executing the project have been described against the backdrop of the project rubric.
 
 ## Section A : Using Histogram of Oriented Gradients (HOG)
 
