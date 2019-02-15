@@ -60,24 +60,35 @@ False positives were eliminated using the following techniques – using better 
 
 * Iteration 1: Use all images provided
 
-Too many non-car portions were identified as cars. On visual examination of the images, the issue was identified as the use of GTI images. ‘Non-cars’ are everything in the world that are not cars – it is too diverse a set of data elements and it is important to use non-car images that are relevant to the track that is being targeted for vehicle identification. A video was also created – the video was terrible – car boxes were created everywhere including on roads, sides of roads and on trees. Hence, GTI images are discarded in subsequent iterations.
+  Too many non-car portions were identified as cars. On visual examination of the images, the issue was identified as the use of GTI
+  images. ‘Non-cars’ are everything in the world that are not cars – it is too diverse a set of data elements and it is important to use
+  non-car images that are relevant to the track that is being targeted for vehicle identification. A video was also created – the video
+  was terrible – car boxes were created everywhere including on roads, sides of roads and on trees. Hence, GTI images are discarded in
+  subsequent iterations.
 
 * Iteration 2: Discarding all GTI images when training the classifier.
 
-The output is much better although there are still a few windows well outside the car region. When a video was created, it was much better than Iteration 1, though a few freeway right side barriers were classified as cars.
+  The output is much better although there are still a few windows well outside the car region. When a video was created, it was much 
+  better than Iteration 1, though a few freeway right side barriers were classified as cars.
 
-* Iteration 3: Adding some extra images of trees, freeway barriers to reduce misclassifications.  Also, adding black and white cars from BMW, Audi and Honda websites to better represent the cars used in the test track. 
+* Iteration 3: Adding some extra images of trees, freeway barriers to reduce misclassifications.  Also, adding black and white cars from
+  BMW, Audi and Honda websites to better represent the cars used in the test track. 
 
-The output is improved over Iteration 3 although a few right side barriers are still misclassified as cars.  Additionally, a region of interest polygon is used to exclude identification of oncoming cars travelling on the other side of the freeway.  The cars are well separated in the images below. 
+  The output is improved over Iteration 3 although a few right side barriers are still misclassified as cars.  Additionally, a region of
+  interest polygon is used to exclude identification of oncoming cars travelling on the other side of the freeway.  The cars are well
+  separated in the images below. 
 
 * Iteration 4: Adding many more images of right side barriers, trees etc. to reduce misclassifications. 
 
-The output deteriorates over iteration 3.  Adding more images for some reason results in road surfaces being classified as cars. 
+  The output deteriorates over iteration 3.  Adding more images for some reason results in road surfaces being classified as cars. 
 
 * Iteration 5: Smoothing the video across frames 
 
-The iteration 3 SVC model is chosen based on sliding windows images, windows identified, heat map generated and the video generated. 
-The heat map generated is stored in a ‘Car’ class and is smoothed across multiple frames while generating the video.  There is a tradeoff between getting low-wobble boxes and speed of flagging of new cars entering the video frame.  A smoothing across 25 frames generates fairly low-wobble boxes. This has been attached as part of the submission.   Smoothing across 15 frames has more wobbling but identifies the new black car entering the frame faster. 
+  The iteration 3 SVC model is chosen based on sliding windows images, windows identified, heat map generated and the video generated.
+  The heat map generated is stored in a ‘Car’ class and is smoothed across multiple frames while generating the video.  There is a
+  tradeoff between getting low-wobble boxes and speed of flagging of new cars entering the video frame.  A smoothing across 25 frames
+  generates fairly low-wobble boxes. This has been attached as part of the submission.   Smoothing across 15 frames has more wobbling
+  but identifies the new black car entering the frame faster. 
 
 ## Section C: Discussion
 
@@ -85,11 +96,16 @@ The heat map generated is stored in a ‘Car’ class and is smoothed across mul
 
 The following are the issues faced during the implementation of the project: 
 
-* Correctly identifying non-cars:   The definition of non-cars is very fuzzy – it can be a mountain, trees, mud banks, the road, barricades and even trucks, buses, motorcycles.  It needs a massive data set and maybe a neural network to improve accuracy here. 
+* Correctly identifying non-cars:   The definition of non-cars is very fuzzy – it can be a mountain, trees, mud banks, the road,
+  barricades and even trucks, buses, motorcycles.  It needs a massive data set and maybe a neural network to improve accuracy here. 
 
-* Shiny cars with smooth surfaces:  The black car is extremely shiny and in many sections of the road reflects the road next to the car.  This is extremely tricky to handle - when I included images of the black car with these reflections, it led to the road itself being wrongly classified.  Reflecting surfaces are a problem.   Also, smooth surfaces have no gradients and the classifier is better at identifying the backs of cars rather than the sides. 
+* Shiny cars with smooth surfaces:  The black car is extremely shiny and in many sections of the road reflects the road next to the car.
+  This is extremely tricky to handle - when I included images of the black car with these reflections, it led to the road itself being
+  wrongly classified.  Reflecting surfaces are a problem.   Also, smooth surfaces have no gradients and the classifier is better at
+  identifying the backs of cars rather than the sides. 
 
-* Occlusion:  If a car overtakes another one, it is difficult to separate one car from the other using the heat map model.  It is also difficult to track a car accurately across the video due to this reason. 
+* Occlusion:  If a car overtakes another one, it is difficult to separate one car from the other using the heat map model.  It is also
+  difficult to track a car accurately across the video due to this reason. 
 
 * Shadows and lighting changes:  The model makes mistakes when there are shadows of trees on the road or the road surface is irregular.
 
