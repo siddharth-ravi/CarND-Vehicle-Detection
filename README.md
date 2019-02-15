@@ -77,7 +77,6 @@ False positives were eliminated using the following techniques – using better 
   
   ![sw2](./examples/slidingwindow2.JPG)
 
-
 * Iteration 3: Adding some extra images of trees, freeway barriers to reduce misclassifications.  Also, adding black and white cars from
   BMW, Audi and Honda websites to better represent the cars used in the test track. 
 
@@ -92,7 +91,6 @@ False positives were eliminated using the following techniques – using better 
   The output deteriorates over iteration 3.  Adding more images for some reason results in road surfaces being classified as cars. 
   
   ![sw4](./examples/slidingwindow4.JPG)
-
 
 * Iteration 5: Smoothing the video across frames 
 
