@@ -8,6 +8,8 @@ The steps used for executing the project have been described against the backdro
 
 The code for this step is contained in section A1 of the Jupyter notebook Vehicle Detection – Part 1. Post reading images, I explored different color spaces and skimage.hog() parameters. The images and hog features have been displayed below in a grid (columns containing 4 car and 2 non-car images) and rows having the output using different color spaces.
 
+![HOG](./examples/hog.JPEG)
+
 
 ### 2. Explain how you settled on your final choice of HOG parameters.
 
