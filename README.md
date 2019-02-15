@@ -67,11 +67,16 @@ False positives were eliminated using the following techniques – using better 
   non-car images that are relevant to the track that is being targeted for vehicle identification. A video was also created – the video
   was terrible – car boxes were created everywhere including on roads, sides of roads and on trees. Hence, GTI images are discarded in
   subsequent iterations.
+  
+  ![sw1](./examples/slidingwindow1.JPG)
 
 * Iteration 2: Discarding all GTI images when training the classifier.
 
   The output is much better although there are still a few windows well outside the car region. When a video was created, it was much 
   better than Iteration 1, though a few freeway right side barriers were classified as cars.
+  
+  ![sw2](./examples/slidingwindow2.JPG)
+
 
 * Iteration 3: Adding some extra images of trees, freeway barriers to reduce misclassifications.  Also, adding black and white cars from
   BMW, Audi and Honda websites to better represent the cars used in the test track. 
@@ -79,10 +84,15 @@ False positives were eliminated using the following techniques – using better 
   The output is improved over Iteration 3 although a few right side barriers are still misclassified as cars.  Additionally, a region of
   interest polygon is used to exclude identification of oncoming cars travelling on the other side of the freeway.  The cars are well
   separated in the images below. 
+  
+  ![sw3](./examples/slidingwindow3.JPG)
 
 * Iteration 4: Adding many more images of right side barriers, trees etc. to reduce misclassifications. 
 
   The output deteriorates over iteration 3.  Adding more images for some reason results in road surfaces being classified as cars. 
+  
+  ![sw4](./examples/slidingwindow4.JPG)
+
 
 * Iteration 5: Smoothing the video across frames 
 
