@@ -85,15 +85,15 @@ The heat map generated is stored in a ‘Car’ class and is smoothed across mul
 
 The following are the issues faced during the implementation of the project: 
 
-a.  Correctly identifying non-cars:   The definition of non-cars is very fuzzy – it can be a mountain, trees, mud banks, the road, barricades and even trucks, buses, motorcycles.  It needs a massive data set and maybe a neural network to improve accuracy here. 
+* Correctly identifying non-cars:   The definition of non-cars is very fuzzy – it can be a mountain, trees, mud banks, the road, barricades and even trucks, buses, motorcycles.  It needs a massive data set and maybe a neural network to improve accuracy here. 
 
-b. Shiny cars with smooth surfaces:  The black car is extremely shiny and in many sections of the road reflects the road next to the car.  This is extremely tricky to handle - when I included images of the black car with these reflections, it led to the road itself being wrongly classified.  Reflecting surfaces are a problem.   Also, smooth surfaces have no gradients and the classifier is better at identifying the backs of cars rather than the sides. 
+* Shiny cars with smooth surfaces:  The black car is extremely shiny and in many sections of the road reflects the road next to the car.  This is extremely tricky to handle - when I included images of the black car with these reflections, it led to the road itself being wrongly classified.  Reflecting surfaces are a problem.   Also, smooth surfaces have no gradients and the classifier is better at identifying the backs of cars rather than the sides. 
 
-c. Occlusion:  If a car overtakes another one, it is difficult to separate one car from the other using the heat map model.  It is also difficult to track a car accurately across the video due to this reason. 
+* Occlusion:  If a car overtakes another one, it is difficult to separate one car from the other using the heat map model.  It is also difficult to track a car accurately across the video due to this reason. 
 
-d. Shadows and lighting changes:  The model makes mistakes when there are shadows of trees on the road or the road surface is irregular.
+* Shadows and lighting changes:  The model makes mistakes when there are shadows of trees on the road or the road surface is irregular.
 
-e. Rain and snow:  Existence of rain and snow will alter the HOG features that are identified and impact the output. 
+* Rain and snow:  Existence of rain and snow will alter the HOG features that are identified and impact the output. 
 
 
 # Original README
